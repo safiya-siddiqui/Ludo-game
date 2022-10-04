@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUDO GAME</title>
+  </head>
+  <style>
+    .container {
+      width: 500px;
+      height: 500px;
+      margin: auto;
+      text-align: center;
+
+      margin-top: 200px;
+    }
+    .dice {
+      text-align: center;
+      float: left;
+      padding: 20px;
+    }
+    img {
+      width: 200px;
+    }
+
+    body {
+      background-color: rgb(61, 113, 173);
+    }
+    h1 {
+      color: beige;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+
+      text-align: center;
+      margin-top: 20px;
+      margin-right: 50px;
+      font-size: 3rem;
+    }
+    p {
+      color: beige;
+      font-family: sans-serif;
+      font-weight: 400;
+      font-size: larger;
+    }
+    .btn {
+      margin-top: 50px;
+      margin-right: 50px;
+      width: 200px;
+      height: 50px;
+      font-size: 30px;
+      color: aliceblue;
+      background-color: black;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>LUDO GAME</h1>
+
+      <div class="dice">
+        <p>player1</p>
+        <img src="Ludo pics/dice4.png" alt="dice" id="check1" />
+      </div>
+
+      <div class="dice">
+        <p>player2</p>
+        <img src="Ludo pics/dice4.png" alt="dice" id="check2" />
+      </div>
+
+      <div>
+        <button class="btn" type="button" onclick="ludogame()">click</button>
+      </div>
+    </div>
+
+    <script>
+      ludogame = () => {
+        const play1 = Math.floor(Math.random() * 6) + 1;
+        const play1dice = `Ludo pics/dice${play1}.png`;
+        document.getElementById("check1").setAttribute("src", play1dice);
+
+        const play2 = Math.floor(Math.random() * 6) + 1;
+        const play2dice = `Ludo pics/dice${play2}.png`;
+        document.getElementById("check2").setAttribute("src", play2dice);
+
+        if (play1 > play2) {
+          document.querySelector("h1").innerHTML = " player1:won";
+        } else if (play1 < play2) {
+          document.querySelector("h1").innerHTML = " player2:won";
+        } else {
+          document.querySelector("h1").innerHTML = "game:draw";
+        }
+      };
+    </script>
+  </body>
+</html>
